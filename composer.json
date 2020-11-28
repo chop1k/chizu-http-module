@@ -1,0 +1,23 @@
+{
+  "name": "chizu/http-module",
+  "type": "library",
+  "description": "A package that provides http functionality",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "chop1k",
+      "email": "fakeshopendesu@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.4",
+    "chizu/module": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Chizu\\Http\\": "src/"
+    }
+  }
+}
