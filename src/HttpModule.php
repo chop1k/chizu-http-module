@@ -20,22 +20,5 @@ class HttpModule extends Module
 
     protected function onInitiation(): void
     {
-        $this->dispatcher->listen(self::RequestEvent, function () {
-            $this->onRequest();
-        });
-
-        $this->dispatcher->listen(self::ResponseEvent, function () {
-            $this->onResponse();
-        });
-    }
-
-    protected function onRequest(): void
-    {
-
-    }
-
-    protected function onResponse(): void
-    {
-
     }
 }
