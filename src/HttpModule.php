@@ -2,6 +2,7 @@
 
 namespace Chizu\Http;
 
+use Chizu\Event\Event;
 use Chizu\Module\Module;
 
 class HttpModule extends Module
@@ -13,12 +14,13 @@ class HttpModule extends Module
     {
         parent::__construct();
 
-        $this->dispatcher->listen(Module::InitiationEvent, function () {
+        $this->dispatcher->set(Module::InitiationEvent, new Event([function () {
             $this->onInitiation();
-        });
+        }]));
     }
 
     protected function onInitiation(): void
     {
+        $this->setInitiated(true);
     }
 }
