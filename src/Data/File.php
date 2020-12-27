@@ -3,6 +3,8 @@
 
 namespace Chizu\Http\Data;
 
+use InvalidArgumentException;
+
 /**
  * Class File represents file.
  *
@@ -118,6 +120,9 @@ class File
         $this->size = $size;
     }
 
+    /**
+     * File constructor.
+     */
     public function __construct()
     {
         $this->name = false;
@@ -129,10 +134,17 @@ class File
     /**
      * Reads file and returns result
      *
-     * @return false|string
+     * @return string
      */
-    public function getContent()
+    public function getContent(): string
     {
-        return file_get_contents($this->path);
+        $result = file_get_contents($this->path);
+
+        if ($result === false)
+        {
+            throw new InvalidArgumentException("Cannot read file $this->path");
+        }
+
+        return $result;
     }
 }

@@ -5,51 +5,76 @@ namespace Chizu\Http\Request;
 use Ds\Map;
 
 /**
- * Class Request
+ * Class Request represents http request.
  *
  * @package Chizu\Http\Request
  */
 class Request
 {
+    /**
+     * Contains http method.
+     *
+     * @var string $method
+     */
     protected string $method;
 
     /**
-     * @return false|string
+     * Returns http method.
+     *
+     * @return string
      */
-    public function getMethod()
+    public function getMethod(): string
     {
         return $this->method;
     }
 
     /**
-     * @param false|string $method
+     * Sets http method.
+     *
+     * @param string $method
      */
-    public function setMethod($method): void
+    public function setMethod(string $method): void
     {
         $this->method = $method;
     }
 
+    /**
+     * Contains request path.
+     *
+     * @var string $url
+     */
     protected string $url;
 
     /**
-     * @return false|string
+     * Returns request path.
+     *
+     * @return string
      */
-    public function getUrl()
+    public function getUrl(): string
     {
         return $this->url;
     }
 
     /**
-     * @param false|string $url
+     * Sets request path.
+     *
+     * @param string $url
      */
-    public function setUrl($url): void
+    public function setUrl(string $url): void
     {
         $this->url = $url;
     }
 
+    /**
+     * Contains map with headers.
+     *
+     * @var Map $headers
+     */
     protected Map $headers;
 
     /**
+     * Returns map with headers.
+     *
      * @return Map
      */
     public function getHeaders(): Map
@@ -57,9 +82,16 @@ class Request
         return $this->headers;
     }
 
+    /**
+     * Contains map with cookies.
+     *
+     * @var Map $cookies
+     */
     protected Map $cookies;
 
     /**
+     * Returns map with cookies.
+     *
      * @return Map
      */
     public function getCookies(): Map
@@ -67,9 +99,16 @@ class Request
         return $this->cookies;
     }
 
+    /**
+     * Contains map with query data.
+     *
+     * @var Map $query
+     */
     protected Map $query;
 
     /**
+     * Returns map with query data.
+     *
      * @return Map
      */
     public function getQuery(): Map
@@ -77,27 +116,43 @@ class Request
         return $this->query;
     }
 
+    /**
+     * Contains request raw body.
+     *
+     * @var string $body
+     */
     protected string $body;
 
     /**
-     * @return false|string
+     * Returns request raw body.
+     *
+     * @return string
      */
-    public function getBody()
+    public function getBody(): string
     {
         return $this->body;
     }
 
     /**
-     * @param false|string $body
+     * Sets request raw body.
+     *
+     * @param string $body
      */
-    public function setBody($body): void
+    public function setBody(string $body): void
     {
         $this->body = $body;
     }
 
+    /**
+     * Contains request files.
+     *
+     * @var Map $files
+     */
     protected Map $files;
 
     /**
+     * Returns request files.
+     *
      * @return Map
      */
     public function getFiles(): Map
@@ -105,9 +160,16 @@ class Request
         return $this->files;
     }
 
+    /**
+     * Contains request params.
+     *
+     * @var Map $params
+     */
     protected Map $params;
 
     /**
+     * Returns request params.
+     *
      * @return Map
      */
     public function getParams(): Map
@@ -115,9 +177,16 @@ class Request
         return $this->params;
     }
 
+    /**
+     * Contains request time in unix.
+     *
+     * @var int $time
+     */
     protected int $time;
 
     /**
+     * Returns request time in unix.
+     *
      * @return int
      */
     public function getTime(): int
@@ -126,6 +195,8 @@ class Request
     }
 
     /**
+     * Sets request time in unix.
+     *
      * @param int $time
      */
     public function setTime(int $time): void
@@ -133,27 +204,43 @@ class Request
         $this->time = $time;
     }
 
+    /**
+     * Contains request remote address.
+     *
+     * @var string $address
+     */
     protected string $address;
 
     /**
-     * @return false|string
+     * Returns request remote address.
+     *
+     * @return string
      */
-    public function getAddress()
+    public function getAddress(): string
     {
         return $this->address;
     }
 
     /**
-     * @param false|string $address
+     * Sets request remote address.
+     *
+     * @param string $address
      */
-    public function setAddress($address): void
+    public function setAddress(string $address): void
     {
         $this->address = $address;
     }
 
+    /**
+     * Contains request remote port.
+     *
+     * @var int $port
+     */
     protected int $port;
 
     /**
+     * Returns request remote port.
+     *
      * @return int
      */
     public function getPort(): int
@@ -162,6 +249,8 @@ class Request
     }
 
     /**
+     * Sets request remote port.
+     *
      * @param int $port
      */
     public function setPort(int $port): void
@@ -169,6 +258,9 @@ class Request
         $this->port = $port;
     }
 
+    /**
+     * Request constructor.
+     */
     public function __construct()
     {
         $this->method = false;

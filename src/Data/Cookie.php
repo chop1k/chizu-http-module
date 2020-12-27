@@ -63,6 +63,9 @@ class Cookie
         $this->value = $value;
     }
 
+    /**
+     * Cookie constructor.
+     */
     public function __construct()
     {
         $this->name = false;

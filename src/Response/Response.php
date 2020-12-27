@@ -3,12 +3,25 @@
 namespace Chizu\Http\Response;
 
 use Ds\Map;
+use Exception;
 
+/**
+ * Class Response represents http response.
+ *
+ * @package Chizu\Http\Response
+ */
 class Response
 {
+    /**
+     * Http response status number.
+     *
+     * @var int $status
+     */
     protected int $status;
 
     /**
+     * Returns http response status number.
+     *
      * @return int
      */
     public function getStatus(): int
@@ -17,6 +30,8 @@ class Response
     }
 
     /**
+     * Sets http response status number.
+     *
      * @param int $status
      */
     public function setStatus(int $status): void
@@ -24,9 +39,16 @@ class Response
         $this->status = $status;
     }
 
+    /**
+     * Contains http response headers.
+     *
+     * @var Map $headers
+     */
     protected Map $headers;
 
     /**
+     * Returns http response headers.
+     *
      * @return Map
      */
     public function getHeaders(): Map
@@ -34,24 +56,36 @@ class Response
         return $this->headers;
     }
 
+    /**
+     * Contains http response body.
+     *
+     * @var string $body
+     */
     protected string $body;
 
     /**
-     * @return false|string
+     * Returns http response body.
+     *
+     * @return string
      */
-    public function getBody()
+    public function getBody(): string
     {
         return $this->body;
     }
 
     /**
-     * @param false|string $body
+     * Sets http response body.
+     *
+     * @param string $body
      */
-    public function setBody($body): void
+    public function setBody(string $body): void
     {
         $this->body = $body;
     }
 
+    /**
+     * Response constructor.
+     */
     public function __construct()
     {
         $this->status = 0;
@@ -59,6 +93,11 @@ class Response
         $this->body = false;
     }
 
+    /**
+     * Sends http response.
+     *
+     * @throws Exception
+     */
     public function send(): void
     {
         http_response_code($this->getStatus());
